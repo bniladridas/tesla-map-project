@@ -67,17 +67,41 @@ To deploy this project on Vercel:
 
 ## Architecture
 ```mermaid
-graph TD;
-    A[User] --> B[Browser]
-    B --> C[Frontend (HTML, CSS, JS)]
-    C --> D[Leaflet.js]
-    C --> E[Backend (Node.js, Express.js)]
-    E --> F[Static Files]
-    E --> G[Map Data]
-    E --> H[Profile Data]
-    F --> I[Public Directory]
-    G --> J[Leaflet Tile Layers]
-    H --> K[Profile Redirects]
+graph TD
+    User([User]) --> Browser([Web Browser])
+    
+    subgraph Frontend
+        Browser --> Interface[HTML/CSS/JS Interface]
+        Interface --> LeafletJS[Leaflet.js Map]
+        Interface --> Interactions[User Interactions]
+    end
+    
+    subgraph Backend ["Backend (Node.js/Express.js)"]
+        API[API Routes]
+        StaticServer[Static File Server]
+        DataHandler[Data Handler]
+    end
+    
+    subgraph Data ["Data Layer"]
+        MapData[(Map Data)]
+        ProfileData[(Profile Data)]
+        Assets[(Static Assets)]
+    end
+    
+    Interface --> API
+    LeafletJS --> API
+    Interactions --> API
+    
+    API --> DataHandler
+    DataHandler --> MapData
+    DataHandler --> ProfileData
+    
+    StaticServer --> Assets
+    Browser --> StaticServer
+    
+    style Frontend fill:#e6f3ff,stroke:#0066cc
+    style Backend fill:#f0ffe6,stroke:#339900
+    style Data fill:#fff0f0,stroke:#cc0000
 ```
 
 ## License
