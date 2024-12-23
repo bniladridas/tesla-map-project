@@ -1,5 +1,5 @@
 {
-    "name": "tesla-map-project",
+    "name": "@bniladridas/tesla-map-project",
     "version": "1.0.0",
     "description": "Tesla Bases Map with Twitter API integration",
     "main": "server/server.js",
@@ -17,5 +17,8 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/bniladridas/tesla-map-project.git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
     }
 }
