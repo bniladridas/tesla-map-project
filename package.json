@@ -1,0 +1,14 @@
+{
+    "name": "tesla-map-project",
+    "version": "1.0.0",
+    "description": "Tesla Bases Map with Twitter API integration",
+    "main": "server/server.js",
+    "scripts": {
+        "start": "node server/server.js"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "express": "^4.18.2",
+        "node-fetch": "^2.6.12"
+    }
+}
